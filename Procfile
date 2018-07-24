@@ -1,3 +1,3 @@
 web: node index.js
-worker: node worker.js
-clock: node clock.js
+worker: node ./process/worker.js
+clock: node ./process/clock.js
