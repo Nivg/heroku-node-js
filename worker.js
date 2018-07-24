@@ -1,4 +1,9 @@
 console.log('IN WORKER');
-module.exports = {
-    start: function() { console.log('start IN WORKER?');/* do stuff */ }
+
+const start = () => {
+    console.log('start IN WORKER?');
+}
+
+export {
+    start
 };
