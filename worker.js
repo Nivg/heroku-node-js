@@ -1,9 +1,9 @@
 console.log('IN WORKER');
 
-const start = () => {
+var start = function() {
     console.log('start IN WORKER?');
-}
+};
 
-export {
-    start
+module.export = {
+    start : start
 };
