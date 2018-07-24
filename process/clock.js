@@ -8,18 +8,19 @@ var open = require('amqplib').connect(url);
 
 //cron.schedule('*/15 * * * * *', function () { each 15 seconds
 //cron.schedule('* */1 * * *', function () { each 1 minute
-cron.schedule('*/1 * * * * *', function () {
-    // Publisher
-    open.then(function(conn) {
-        var ok = conn.createChannel();
-        ok = ok.then(function(ch) {
+// Publisher
+open.then(function(conn) {
+    var ok = conn.createChannel();
+    ok = ok.then(function(ch) {
         ch.assertQueue(q);
-        console.log('IN CLOCK::sendToQueue::');
-        ch.sendToQueue(q, new Buffer('something to do'));
+        cron.schedule('*/1 * * * * *', function () {
+            console.log('IN CLOCK::sendToQueue::');
+            ch.sendToQueue(q, new Buffer('something to do'));
         });
-        return ok;
-    }).then(null, console.warn);
-});
+    });
+    return ok;
+}).then(null, console.warn);
+
 
 
 
