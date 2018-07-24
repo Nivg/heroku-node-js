@@ -6,7 +6,8 @@ var q = 'tasks';
 var url = process.env.CLOUDAMQP_URL || "amqp://localhost";
 var open = require('amqplib').connect(url);
 
-cron.schedule('*/15 * * * * *', function () {
+//cron.schedule('*/15 * * * * *', function () { each 15 seconds
+cron.schedule('* */1 * * *', function () {
     // Publisher
     open.then(function(conn) {
         var ok = conn.createChannel();
