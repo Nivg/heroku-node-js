@@ -1,3 +1,3 @@
-web: node index.js
-worker: node ./process/worker.js
-clock: node ./process/clock.js
+web: babel-node index.js
+worker: babel-node ./process/worker.js
+clock: babel-node ./process/clock.js
