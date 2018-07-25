@@ -1,6 +1,11 @@
+require('babel-register')({
+  "presets": ["es2015"]
+});
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
+
+const func = () => {console.log('WORKING');};
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
