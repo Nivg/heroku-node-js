@@ -13,7 +13,7 @@ open.then(function(conn) {
     var ok = conn.createChannel();
     ok = ok.then(function(ch) {
         ch.assertQueue(q);
-        cron.schedule('* * * * */1 *', function () {
+        cron.schedule('* * * */30 * *', function () {
             console.log('IN CLOCK::sendToQueue::');
             ch.sendToQueue(q, new Buffer('something to do'));
         });
