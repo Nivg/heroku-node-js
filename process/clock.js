@@ -20,7 +20,3 @@ open.then(function(conn) {
     });
     return ok;
 }).then(null, console.warn);
-
-
-
-
